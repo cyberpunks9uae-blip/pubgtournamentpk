@@ -2,168 +2,64 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>PUBG Tournament PK - Pro</title>
+<title>PUBGTournamentPK - Ultra Pro</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Roboto&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Roboto',sans-serif;}
 html{scroll-behavior:smooth;}
+body{background:#0d0d0d;color:white;}
 
-body{
-background:#0d0d0d;
-color:white;
-}
-
-/* NAVBAR */
-nav{
-position:fixed;
-width:100%;
-top:0;
-background:rgba(0,0,0,0.8);
-display:flex;
-justify-content:space-between;
-padding:15px 30px;
-z-index:1000;
-}
-
-nav h2{
-color:red;
-font-family:'Orbitron',sans-serif;
-}
-
-nav a{
-color:white;
-margin-left:15px;
-text-decoration:none;
-font-size:14px;
-}
-
+/* ===== NAVBAR ===== */
+nav{position:fixed;width:100%;top:0;background:rgba(0,0,0,0.85);display:flex;justify-content:space-between;padding:15px 30px;z-index:1000;}
+nav h2{color:red;font-family:'Orbitron',sans-serif;}
+nav a{color:white;margin-left:15px;text-decoration:none;font-size:14px;}
 nav a:hover{color:red;}
 
-/* HERO */
-.hero{
-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-background:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),
-url('https://cdn.pixabay.com/photo/2020/04/27/05/13/pubg-5098858_1280.jpg');
-background-size:cover;
-animation:zoom 20s infinite alternate;
-}
-
-@keyframes zoom{
-0%{background-size:100%;}
-100%{background-size:110%;}
-}
-
-.hero h1{
-font-size:50px;
-color:#ff0000;
-text-shadow:0 0 25px red;
-font-family:'Orbitron',sans-serif;
-animation:glow 2s infinite alternate;
-}
-
-@keyframes glow{
-from{text-shadow:0 0 10px red;}
-to{text-shadow:0 0 30px red;}
-}
-
+/* ===== HERO ===== */
+.hero{height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url('https://cdn.pixabay.com/photo/2020/04/27/05/13/pubg-5098858_1280.jpg');background-size:cover;background-position:center;animation:zoom 20s infinite alternate;}
+@keyframes zoom{0%{background-size:100%;}100%{background-size:110%;}}
+.hero h1{font-size:50px;color:#ff0000;text-shadow:0 0 25px red;font-family:'Orbitron',sans-serif;animation:glow 2s infinite alternate;}
+@keyframes glow{from{text-shadow:0 0 10px red;}to{text-shadow:0 0 30px red;}}
 .hero h2{color:#00ffcc;margin:10px 0;}
+.hero p{margin:5px 0;font-size:18px;}
+.btn{background:red;padding:12px 25px;border-radius:30px;color:white;text-decoration:none;box-shadow:0 0 15px red;transition:.3s;display:inline-block;margin-top:10px;}
+.btn:hover{background:black;box-shadow:0 0 25px red;transform:scale(1.05);}
 
-.btn{
-background:red;
-padding:12px 25px;
-border-radius:30px;
-color:white;
-text-decoration:none;
-box-shadow:0 0 15px red;
-transition:.3s;
-display:inline-block;
-margin-top:10px;
-}
+/* ===== SECTION ===== */
+.section{padding:80px 20px;text-align:center;}
+.card{background:#1a1a1a;margin:20px auto;padding:25px;border-radius:15px;max-width:500px;box-shadow:0 0 25px red;transition:.4s;}
+.card:hover{transform:translateY(-10px);box-shadow:0 0 40px red;}
+.grid{display:flex;flex-wrap:wrap;justify-content:center;gap:20px;}
+.card img{width:100%;border-radius:10px;margin-top:10px;}
 
-.btn:hover{
-background:black;
-box-shadow:0 0 25px red;
-transform:scale(1.05);
-}
+/* ===== SLIDESHOW ===== */
+.slideshow-container{max-width:500px;position:relative;margin:20px auto;border-radius:10px;overflow:hidden;box-shadow:0 0 25px red;}
+.slides{display:none;width:100%;border-radius:10px;}
+.prev,.next{cursor:pointer;position:absolute;top:50%;width:auto;padding:12px;margin-top:-22px;color:white;font-weight:bold;font-size:22px;border-radius:0 3px 3px 0;user-select:none;background:rgba(0,0,0,0.5);}
+.next{right:0;border-radius:3px 0 0 3px;}
+.prev:hover,.next:hover{background-color:rgba(255,0,0,0.8);}
+.dot-container{text-align:center;padding:10px;}
+.dot{height:12px;width:12px;margin:0 4px;background-color:#bbb;border-radius:50%;display:inline-block;transition:.3s;cursor:pointer;}
+.active-dot{background-color:red;}
 
-/* SECTION */
-.section{
-padding:80px 20px;
-text-align:center;
-}
+/* ===== FLOAT WHATSAPP ===== */
+.whatsapp{position:fixed;bottom:20px;right:20px;background:#25D366;padding:15px;border-radius:50%;font-size:20px;color:white;text-decoration:none;box-shadow:0 0 15px #25D366;}
 
-.card{
-background:#1a1a1a;
-margin:20px auto;
-padding:25px;
-border-radius:15px;
-max-width:500px;
-box-shadow:0 0 25px red;
-transition:.4s;
-}
+/* ===== FOOTER ===== */
+.footer{text-align:center;padding:20px;background:#111;}
 
-.card:hover{
-transform:translateY(-10px);
-box-shadow:0 0 40px red;
-}
-
-/* GRID */
-.grid{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:20px;
-}
-
-/* IMAGE */
-.card img{
-width:100%;
-border-radius:10px;
-margin-top:10px;
-}
-
-/* FOOTER */
-.footer{
-text-align:center;
-padding:20px;
-background:#111;
-}
-
-/* FLOAT WHATSAPP */
-.whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25D366;
-padding:15px;
-border-radius:50%;
-font-size:20px;
-color:white;
-text-decoration:none;
-box-shadow:0 0 15px #25D366;
-}
-
-/* MOBILE */
-@media(max-width:768px){
-.hero h1{font-size:32px;}
-nav{flex-direction:column;}
-}
+/* ===== MOBILE ===== */
+@media(max-width:768px){.hero h1{font-size:32px;}nav{flex-direction:column;}}
 </style>
 </head>
 
 <body>
 
-<!-- NAV -->
+<!-- NAVBAR -->
 <nav>
-<h2>PUBG PK</h2>
+<h2>PUBGTournamentPK</h2>
 <div>
 <a href="#details">Details</a>
 <a href="#prize">Prize</a>
@@ -174,29 +70,31 @@ nav{flex-direction:column;}
 <!-- HERO -->
 <section class="hero">
 <h1>🔥 PUBG Tournament 🔥</h1>
-<h2>Win 10,000 PKR</h2>
-<p>Entry Fee 200 PKR • Squad • 50 Players</p>
+<h2>Win up to 10,000 PKR</h2>
+<p>Entry Fee: 200 PKR per Player | Squad | 50 Players | Map: Livik</p>
 <a href="https://wa.me/923084532618" class="btn">Join Now</a>
 </section>
 
 <!-- DETAILS -->
 <section id="details" class="section">
 <div class="grid">
-
 <div class="card">
 <h2>🎮 Match Details</h2>
 <p>Map: Livik</p>
 <p>Mode: Squad</p>
 <p>Players: 50</p>
+<p>Organizer: Muhammad Shehroz Fiaz</p>
 </div>
-
 <div class="card">
-<h2>📜 Rules</h2>
-<p>No Emulator</p>
-<p>No Hack</p>
-<p>No Teaming</p>
+<h2>📜 Tournament Rules</h2>
+<ul style="text-align:left;">
+<li>No Emulator</li>
+<li>No Hacking / Cheating</li>
+<li>No Teaming</li>
+<li>Join On Time</li>
+<li>Organizer Decision Final</li>
+</ul>
 </div>
-
 </div>
 </section>
 
@@ -204,11 +102,11 @@ nav{flex-direction:column;}
 <section id="prize" class="section">
 <div class="card">
 <h2>💰 Prize Pool</h2>
-<p>Total: 10,000 PKR</p>
-<p>🥇 6000 PKR</p>
-<p>🥈 2000 PKR</p>
-<p>🔥 1000 PKR</p>
-<p>👑 1000 PKR</p>
+<p>Total Prize: 10,000 PKR</p>
+<p>🥇 Top1 Squad: 6000 PKR</p>
+<p>🥈 Top2 Squad: 2000 PKR</p>
+<p>🔥 Highest Kill Player: 1000 PKR</p>
+<p>👑 Tournament Organizer: 1000 PKR</p>
 <p style="color:#00ffcc;">✔ 100% Entry Based</p>
 </div>
 </section>
@@ -219,27 +117,46 @@ nav{flex-direction:column;}
 <h2>📲 Join Now</h2>
 <p>Send 200 PKR via JazzCash / Easypaisa</p>
 <p><b>03098784811</b></p>
-<p>Then send screenshot on WhatsApp</p>
+<p>Then send screenshot on WhatsApp:</p>
 <a href="https://wa.me/923084532618" class="btn">Send Screenshot</a>
 </div>
 </section>
 
-<!-- PROOF -->
+<!-- WINNERS / SLIDESHOW -->
 <section class="section">
 <div class="card">
-<h2>🏆 Winners Proof</h2>
-<img src="https://via.placeholder.com/400x200">
-<img src="https://via.placeholder.com/400x200">
+<h2>🏆 Recent Winners / PUBG Highlights</h2>
+<div class="slideshow-container">
+<img class="slides" src="https://cdn.pixabay.com/photo/2020/04/27/05/13/pubg-5098858_1280.jpg" alt="PUBG Battle">
+<img class="slides" src="https://cdn.pixabay.com/photo/2021/10/03/20/20/pubg-6672471_1280.jpg" alt="PUBG Gameplay">
+<img class="slides" src="https://cdn.pixabay.com/photo/2018/10/22/10/44/battlefield-3762526_1280.jpg" alt="PUBG Action">
+<a class="prev" onclick="changeSlide(-1)">❮</a>
+<a class="next" onclick="changeSlide(1)">❯</a>
+<div class="dot-container">
+<span class="dot" onclick="currentSlide(1)"></span>
+<span class="dot" onclick="currentSlide(2)"></span>
+<span class="dot" onclick="currentSlide(3)"></span>
+</div>
+</div>
 </div>
 </section>
 
-<!-- FLOAT BTN -->
+<!-- FLOAT WHATSAPP -->
 <a href="https://wa.me/923084532618" class="whatsapp">💬</a>
 
 <!-- FOOTER -->
 <div class="footer">
 <p>© 2026 PUBG Tournament PK</p>
 </div>
+
+<script>
+// ===== SLIDESHOW =====
+let slideIndex=1; showSlides(slideIndex);
+function showSlides(n){let slides=document.getElementsByClassName("slides"); let dots=document.getElementsByClassName("dot"); if(n>slides.length){slideIndex=1;} if(n<1){slideIndex=slides.length;} for(let i=0;i<slides.length;i++){slides[i].style.display="none";} for(let i=0;i<dots.length;i++){dots[i].classList.remove("active-dot");} slides[slideIndex-1].style.display="block"; dots[slideIndex-1].classList.add("active-dot");}
+function changeSlide(n){showSlides(slideIndex+=n);}
+function currentSlide(n){showSlides(slideIndex=n);}
+setInterval(()=>{changeSlide(1);},4000);
+</script>
 
 </body>
 </html>
