@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>PUBGTournamentPK - Ultra Pro</title>
+<title>PUBGTournamentPK - Interactive</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Roboto&display=swap" rel="stylesheet">
 
@@ -11,14 +11,20 @@
 html{scroll-behavior:smooth;}
 body{background:#0d0d0d;color:white;}
 
-/* ===== NAVBAR ===== */
+/* NAVBAR */
 nav{position:fixed;width:100%;top:0;background:rgba(0,0,0,0.85);display:flex;justify-content:space-between;padding:15px 30px;z-index:1000;}
 nav h2{color:red;font-family:'Orbitron',sans-serif;}
 nav a{color:white;margin-left:15px;text-decoration:none;font-size:14px;}
 nav a:hover{color:red;}
 
-/* ===== HERO ===== */
-.hero{height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url('https://cdn.pixabay.com/photo/2020/04/27/05/13/pubg-5098858_1280.jpg');background-size:cover;background-position:center;animation:zoom 20s infinite alternate;}
+/* HERO */
+.hero{height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;
+background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),
+url('https://cdn.pixabay.com/photo/2020/04/27/05/13/pubg-5098858_1280.jpg');
+background-size: cover;
+background-position: center;
+animation: zoom 20s infinite alternate;
+}
 @keyframes zoom{0%{background-size:100%;}100%{background-size:110%;}}
 .hero h1{font-size:50px;color:#ff0000;text-shadow:0 0 25px red;font-family:'Orbitron',sans-serif;animation:glow 2s infinite alternate;}
 @keyframes glow{from{text-shadow:0 0 10px red;}to{text-shadow:0 0 30px red;}}
@@ -27,14 +33,14 @@ nav a:hover{color:red;}
 .btn{background:red;padding:12px 25px;border-radius:30px;color:white;text-decoration:none;box-shadow:0 0 15px red;transition:.3s;display:inline-block;margin-top:10px;}
 .btn:hover{background:black;box-shadow:0 0 25px red;transform:scale(1.05);}
 
-/* ===== SECTION ===== */
+/* SECTION */
 .section{padding:80px 20px;text-align:center;}
 .card{background:#1a1a1a;margin:20px auto;padding:25px;border-radius:15px;max-width:500px;box-shadow:0 0 25px red;transition:.4s;}
 .card:hover{transform:translateY(-10px);box-shadow:0 0 40px red;}
 .grid{display:flex;flex-wrap:wrap;justify-content:center;gap:20px;}
 .card img{width:100%;border-radius:10px;margin-top:10px;}
 
-/* ===== SLIDESHOW ===== */
+/* SLIDESHOW */
 .slideshow-container{max-width:500px;position:relative;margin:20px auto;border-radius:10px;overflow:hidden;box-shadow:0 0 25px red;}
 .slides{display:none;width:100%;border-radius:10px;}
 .prev,.next{cursor:pointer;position:absolute;top:50%;width:auto;padding:12px;margin-top:-22px;color:white;font-weight:bold;font-size:22px;border-radius:0 3px 3px 0;user-select:none;background:rgba(0,0,0,0.5);}
@@ -44,20 +50,20 @@ nav a:hover{color:red;}
 .dot{height:12px;width:12px;margin:0 4px;background-color:#bbb;border-radius:50%;display:inline-block;transition:.3s;cursor:pointer;}
 .active-dot{background-color:red;}
 
-/* ===== FLOAT WHATSAPP ===== */
+/* FLOAT WHATSAPP */
 .whatsapp{position:fixed;bottom:20px;right:20px;background:#25D366;padding:15px;border-radius:50%;font-size:20px;color:white;text-decoration:none;box-shadow:0 0 15px #25D366;}
 
-/* ===== FOOTER ===== */
+/* FOOTER */
 .footer{text-align:center;padding:20px;background:#111;}
 
-/* ===== MOBILE ===== */
+/* MOBILE */
 @media(max-width:768px){.hero h1{font-size:32px;}nav{flex-direction:column;}}
 </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
+<!-- NAV -->
 <nav>
 <h2>PUBGTournamentPK</h2>
 <div>
@@ -70,9 +76,11 @@ nav a:hover{color:red;}
 <!-- HERO -->
 <section class="hero">
 <h1>🔥 PUBG Tournament 🔥</h1>
-<h2>Win up to 10,000 PKR</h2>
+<h2>Win up to <span id="dynamicPrize">10,000</span> PKR</h2>
 <p>Entry Fee: 200 PKR per Player | Squad | 50 Players | Map: Livik</p>
 <a href="https://wa.me/923084532618" class="btn">Join Now</a>
+<div id="slotCounter" style="margin-top:15px;font-size:20px;color:#00ffcc;">Players Joined: 0/50</div>
+<div id="countdown" style="margin-top:10px;color:#ffcc00;font-size:18px;"></div>
 </section>
 
 <!-- DETAILS -->
@@ -83,7 +91,7 @@ nav a:hover{color:red;}
 <p>Map: Livik</p>
 <p>Mode: Squad</p>
 <p>Players: 50</p>
-<p>Organizer: Muhammad Shehroz Fiaz</p>
+<p>Organizer: Asad Fiaz</p>
 </div>
 <div class="card">
 <h2>📜 Tournament Rules</h2>
@@ -102,7 +110,7 @@ nav a:hover{color:red;}
 <section id="prize" class="section">
 <div class="card">
 <h2>💰 Prize Pool</h2>
-<p>Total Prize: 10,000 PKR</p>
+<p>Total Prize: <span id="totalPrize">10,000</span> PKR</p>
 <p>🥇 Top1 Squad: 6000 PKR</p>
 <p>🥈 Top2 Squad: 2000 PKR</p>
 <p>🔥 Highest Kill Player: 1000 PKR</p>
@@ -116,9 +124,10 @@ nav a:hover{color:red;}
 <div class="card">
 <h2>📲 Join Now</h2>
 <p>Send 200 PKR via JazzCash / Easypaisa</p>
-<p><b>03098784811</b></p>
+<p><b>Account Name: Muhammad Shehroz Fiaz</b></p>
+<p>Account Number: 03098784811</p>
 <p>Then send screenshot on WhatsApp:</p>
-<a href="https://wa.me/923084532618" class="btn">Send Screenshot</a>
+<a href="https://wa.me/923084532618" class="btn" id="joinBtn">Send Screenshot</a>
 </div>
 </section>
 
@@ -152,10 +161,51 @@ nav a:hover{color:red;}
 <script>
 // ===== SLIDESHOW =====
 let slideIndex=1; showSlides(slideIndex);
-function showSlides(n){let slides=document.getElementsByClassName("slides"); let dots=document.getElementsByClassName("dot"); if(n>slides.length){slideIndex=1;} if(n<1){slideIndex=slides.length;} for(let i=0;i<slides.length;i++){slides[i].style.display="none";} for(let i=0;i<dots.length;i++){dots[i].classList.remove("active-dot");} slides[slideIndex-1].style.display="block"; dots[slideIndex-1].classList.add("active-dot");}
+function showSlides(n){
+let slides=document.getElementsByClassName("slides");
+let dots=document.getElementsByClassName("dot");
+if(n>slides.length){slideIndex=1;}
+if(n<1){slideIndex=slides.length;}
+for(let i=0;i<slides.length;i++){slides[i].style.display="none";}
+for(let i=0;i<dots.length;i++){dots[i].classList.remove("active-dot");}
+slides[slideIndex-1].style.display="block";
+dots[slideIndex-1].classList.add("active-dot");
+}
 function changeSlide(n){showSlides(slideIndex+=n);}
 function currentSlide(n){showSlides(slideIndex=n);}
 setInterval(()=>{changeSlide(1);},4000);
+
+// ===== SLOT COUNTER & DYNAMIC PRIZE =====
+let slots=0, maxSlots=50;
+const slotCounter=document.getElementById("slotCounter");
+const dynamicPrize=document.getElementById("dynamicPrize");
+const totalPrize=document.getElementById("totalPrize");
+const joinBtn=document.getElementById("joinBtn");
+
+joinBtn.addEventListener("click",()=>{
+if(slots<maxSlots){
+slots++;
+slotCounter.innerText="Players Joined: "+slots+"/50";
+let prize=6000 + 2000 + 1000 + 1000; // Fixed total
+dynamicPrize.innerText=prize;
+totalPrize.innerText=prize;
+}
+});
+
+// ===== COUNTDOWN =====
+const countdown=document.getElementById("countdown");
+const nextMatch=new Date(new Date().getTime()+3600*1000); // 1 hour later
+function updateCountdown(){
+const now=new Date();
+const diff=nextMatch-now;
+if(diff<=0){countdown.innerText="Match Started!"; return;}
+let h=Math.floor(diff/1000/60/60);
+let m=Math.floor((diff/1000/60)%60);
+let s=Math.floor((diff/1000)%60);
+countdown.innerText=`Next Match Starts in: ${h}h ${m}m ${s}s`;
+}
+setInterval(updateCountdown,1000);
+updateCountdown();
 </script>
 
 </body>
