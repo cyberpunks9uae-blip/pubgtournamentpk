@@ -4,173 +4,157 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PUBG Tournament PK</title>
+
 <style>
-/* General Body */
 body {
   margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: Arial, sans-serif;
   background: #0f0f1a;
-  color: #fff;
+  color: white;
   text-align: center;
 }
 
 /* Header */
 header {
-  padding: 50px 20px;
+  padding: 50px;
   background: linear-gradient(135deg, #ff0055, #5500ff);
-  color: #fff;
-}
-header h1 {
-  font-size: 42px;
-  margin-bottom: 10px;
-  text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
-}
-header h2 {
-  font-size: 24px;
-  margin: 10px 0 20px 0;
-}
-header p {
-  font-size: 18px;
-}
-header .btn {
-  display: inline-block;
-  background: linear-gradient(45deg,#ff55aa,#aa00ff);
-  color: #fff;
-  padding: 15px 35px;
-  text-decoration: none;
-  border-radius: 12px;
-  font-size: 18px;
-  transition: all 0.3s ease;
-}
-header .btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px #ff55aa;
 }
 
-/* Info Section */
+h1 { font-size: 40px; margin: 0; }
+
+/* Button */
+.btn {
+  display: inline-block;
+  background: linear-gradient(45deg,#ff55aa,#aa00ff);
+  padding: 15px 30px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: white;
+  margin-top: 20px;
+}
+
+/* Boxes */
 .info {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 40px 10px;
-  gap: 20px;
+  padding: 20px;
 }
+
 .box {
   background: #1a1a2e;
-  width: 270px;
-  padding: 25px;
-  border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(255,0,85,0.5);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin: 10px;
+  padding: 20px;
+  width: 260px;
+  border-radius: 10px;
 }
-.box:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(255,0,85,0.7);
-}
-.box h2 {
-  margin-bottom: 12px;
+
+/* Timer */
+#timer {
   font-size: 22px;
+  margin-top: 10px;
   color: #ff77aa;
 }
-.box p, .box li {
-  font-size: 16px;
-  margin: 5px 0;
-}
 
-/* Footer */
-footer {
-  padding: 20px;
+/* Winner */
+.winner {
   background: #111;
-  margin-top: 20px;
-  font-size: 14px;
-  opacity: 0.8;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px solid #ff0055;
 }
 
-/* Sticky Join Button */
+/* Sticky Button */
 .sticky-btn {
   position: fixed;
-  bottom: 25px;
-  right: 25px;
-  background: linear-gradient(45deg,#ff55aa,#aa00ff);
-  color: #fff;
-  padding: 15px 30px;
+  bottom: 20px;
+  right: 20px;
+  background: #ff0055;
+  padding: 15px 25px;
+  border-radius: 10px;
   text-decoration: none;
-  border-radius: 12px;
-  font-size: 18px;
-  box-shadow: 0 0 15px #ff55aa;
-  transition: all 0.3s ease;
-}
-.sticky-btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 25px #ff77aa;
+  color: white;
 }
 
-/* Responsive */
-@media(max-width: 800px){
-  .info { flex-direction: column; align-items: center; }
-  .box { width: 90%; max-width: 350px; }
-}
 </style>
 </head>
+
 <body>
 
 <header>
   <h1>PUBG TOURNAMENT PK</h1>
   <p>🔥 Squad Match | Entry Fee: 200 Rs</p>
   <h2>Win Up To 10,000 Rs 💰</h2>
-  <a class="btn" href="https://forms.gle/9GRBgwH5DNpt7xBJA" target="_blank">JOIN TOURNAMENT</a>
+
+  <div id="timer">Next Match In: Loading...</div>
+
+  <a class="btn" href="YOUR_GOOGLE_FORM_LINK" target="_blank">JOIN NOW</a>
 </header>
 
 <section class="info">
 
   <div class="box">
-    <h2>💰 Total Pool & Prize</h2>
-    <p>🧾 Total Players: 50</p>
-    <p>💵 Entry Fee per Player: 200 Rs</p>
-    <p>📊 Total Pool: 50 × 200 = 10,000 Rs</p>
-    <p>🏆 Prize Distribution:</p>
-    <ul style="list-style:none; padding:0;">
-      <li>🥇 Top 1 Squad: 6000 Rs</li>
-      <li>🥈 Top 2 Squad: 2000 Rs</li>
-      <li>🔫 Highest Kill: 1000 Rs</li>
-      <li>🎉 Organizer Share: 1000 Rs</li>
-    </ul>
+    <h2>💰 Total Pool</h2>
+    <p>50 Players × 200 Rs</p>
+    <p><b>= 10,000 Rs</b></p>
   </div>
 
   <div class="box">
-    <h2>🎮 Tournament Details</h2>
-    <p>Mode: Squad (12 Teams)</p>
-    <p>Total Players: 50</p>
+    <h2>🏆 Prize</h2>
+    <p>🥇 6000 Rs</p>
+    <p>🥈 2000 Rs</p>
+    <p>🔫 1000 Rs</p>
+    <p>🎉 1000 Rs</p>
   </div>
 
   <div class="box">
-    <h2>💰 Payment Method</h2>
+    <h2>👥 Slots</h2>
+    <p id="slots">Joined: 0 / 50</p>
+  </div>
+
+  <div class="box">
+    <h2>💰 Payment</h2>
     <p>JazzCash / Easypaisa</p>
-    <p>Number: 03098784811</p>
-    <p>Name: Muhammad Shehroz Fiaz</p>
-  </div>
-
-  <div class="box">
-    <h2>👑 Organizer</h2>
-    <p>Name: Muhammad Asad Fiaz</p>
-    <p>WhatsApp: 03084532618</p>
+    <p>03098784811</p>
   </div>
 
 </section>
 
-<a class="sticky-btn" href="YOUR_GOOGLE_FORM_LINK" target="_blank">JOIN TOURNAMENT</a>
+<div class="winner">
+  <h2>🏆 Last Match Winner</h2>
+  <p>Team Alpha - 6000 Rs</p>
+</div>
 
-<footer>
-  <p>© 2026 PUBG Tournament PK | All Rights Reserved</p>
-</footer>
+<a class="sticky-btn" href="YOUR_GOOGLE_FORM_LINK" target="_blank">JOIN</a>
 
 <script>
-// Optional JS for future features
-console.log("Website loaded successfully");
-// Example future features:
-// - Countdown timer
-// - Joined players slots counter
-// - Winner highlight animation
+
+// ⏳ Countdown Timer (set next match time)
+var countDownDate = new Date().getTime() + (2 * 60 * 60 * 1000); // 2 hours from now
+
+setInterval(function() {
+  var now = new Date().getTime();
+  var distance = countDownDate - now;
+
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+  document.getElementById("timer").innerHTML =
+  "Next Match In: " + hours + "h " + minutes + "m";
+
+}, 1000);
+
+
+// 👥 Fake Slots Counter (demo)
+let joined = 0;
+setInterval(() => {
+  if (joined < 50) {
+    joined++;
+    document.getElementById("slots").innerText = "Joined: " + joined + " / 50";
+  }
+}, 2000);
+
 </script>
 
 </body>
