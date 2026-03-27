@@ -6,85 +6,119 @@
 <title>PUBG Tournament PK</title>
 
 <style>
-body {
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   font-family: 'Segoe UI', sans-serif;
-  background: #0a0a12;
-  color: #fff;
-  text-align: center;
 }
 
-/* Hero Section */
+body {
+  color: white;
+  text-align: center;
+  background: url('https://images.unsplash.com/photo-1605902711622-cfb43c4437d1') no-repeat center/cover;
+}
+
+/* Overlay */
+body::before {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.75);
+  z-index: -1;
+}
+
+/* Header */
 header {
   padding: 60px 20px;
-  background: linear-gradient(135deg, #ff6a00, #ee0979);
 }
 
 header h1 {
-  font-size: 42px;
-  margin: 0;
+  font-size: 45px;
+  color: #ffcc00;
+  text-shadow: 0 0 20px #ffcc00;
 }
 
 header p {
-  font-size: 18px;
   margin-top: 10px;
+  font-size: 18px;
+  color: #ccc;
 }
 
-.hero-img {
-  width: 90%;
-  max-width: 400px;
-  margin: 20px auto;
-  border-radius: 15px;
+header h2 {
+  margin-top: 15px;
+  font-size: 24px;
+  color: #00f2fe;
 }
 
-/* Button */
+/* Glowing Button */
 .btn {
   display: inline-block;
-  background: linear-gradient(45deg,#00f2fe,#4facfe);
-  padding: 15px 30px;
-  border-radius: 12px;
-  text-decoration: none;
-  color: white;
+  margin-top: 25px;
+  padding: 15px 40px;
   font-size: 18px;
-  margin-top: 20px;
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  background: linear-gradient(45deg,#ff0055,#00f2fe);
+  box-shadow: 0 0 20px #ff0055;
+  transition: 0.3s;
+}
+.btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 30px #00f2fe;
 }
 
-/* Info Section */
+/* Glass Cards */
 .info {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 20px;
+  padding: 30px;
 }
 
 .box {
-  background: #111122;
-  margin: 10px;
-  padding: 20px;
+  backdrop-filter: blur(10px);
+  background: rgba(255,255,255,0.05);
+  margin: 15px;
+  padding: 25px;
   width: 260px;
-  border-radius: 15px;
-  box-shadow: 0 0 15px #ff00ff55;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: 0.3s;
+}
+.box:hover {
+  transform: translateY(-10px) scale(1.05);
 }
 
 /* Winner */
 .winner {
-  background: linear-gradient(45deg,#00c6ff,#0072ff);
   margin: 20px;
   padding: 20px;
   border-radius: 15px;
+  background: linear-gradient(45deg,#ffcc00,#ff0055);
+  color: black;
+  font-weight: bold;
 }
 
 /* Sticky Button */
 .sticky-btn {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #00f2fe;
-  padding: 15px 25px;
-  border-radius: 10px;
+  bottom: 25px;
+  right: 25px;
+  background: linear-gradient(45deg,#00f2fe,#ff0055);
+  padding: 15px 30px;
+  border-radius: 30px;
   text-decoration: none;
-  color: black;
+  color: white;
   font-weight: bold;
+  box-shadow: 0 0 20px #00f2fe;
+}
+
+/* Responsive */
+@media(max-width: 800px){
+  .info { flex-direction: column; align-items: center; }
 }
 
 </style>
@@ -94,21 +128,18 @@ header p {
 
 <header>
   <h1>🔥 PUBG TOURNAMENT PK 🔥</h1>
-  <p>Squad Battles | Entry 200 Rs | Massive Rewards 💰</p>
-
-  <img class="hero-img" src="https://images.unsplash.com/photo-1605902711622-cfb43c4437d1" alt="pubg">
-
-  <h2>💎 Win Big. Play Smart. Dominate 💎</h2>
+  <p>Enter the Battle Arena • Squad Mode • 200 Rs Entry</p>
+  <h2>💎 10,000 Rs Prize Pool 💎</h2>
 
   <a class="btn" href="https://forms.gle/V7kWJjrYwmyG9Bwx5" target="_blank">
-  JOIN TOURNAMENT 🚀
+    JOIN NOW 🚀
   </a>
 </header>
 
 <section class="info">
 
   <div class="box">
-    <h2>💰 Total Prize Pool</h2>
+    <h2>💰 Prize Pool</h2>
     <p>50 Players × 200 Rs</p>
     <p><b>= 10,000 Rs</b></p>
   </div>
@@ -122,9 +153,9 @@ header p {
   </div>
 
   <div class="box">
-    <h2>🎮 Match Type</h2>
+    <h2>🎮 Match</h2>
     <p>Squad (12 Teams)</p>
-    <p>Total Players: 50</p>
+    <p>50 Players Total</p>
   </div>
 
   <div class="box">
@@ -136,12 +167,11 @@ header p {
 </section>
 
 <div class="winner">
-  <h2>🏆 Previous Winner</h2>
-  <p>Team Legends - 6000 Rs</p>
+  🏆 Last Winner: Team Alpha - 6000 Rs
 </div>
 
 <a class="sticky-btn" href="https://forms.gle/V7kWJjrYwmyG9Bwx5" target="_blank">
-JOIN NOW
+JOIN FAST ⚡
 </a>
 
 </body>
