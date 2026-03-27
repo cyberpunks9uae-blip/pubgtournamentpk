@@ -8,32 +8,48 @@
 <style>
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #0f0f1a;
-  color: white;
+  font-family: 'Segoe UI', sans-serif;
+  background: #0a0a12;
+  color: #fff;
   text-align: center;
 }
 
-/* Header */
+/* Hero Section */
 header {
-  padding: 50px;
-  background: linear-gradient(135deg, #ff0055, #5500ff);
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #ff6a00, #ee0979);
 }
 
-h1 { font-size: 40px; margin: 0; }
+header h1 {
+  font-size: 42px;
+  margin: 0;
+}
+
+header p {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.hero-img {
+  width: 90%;
+  max-width: 400px;
+  margin: 20px auto;
+  border-radius: 15px;
+}
 
 /* Button */
 .btn {
   display: inline-block;
-  background: linear-gradient(45deg,#ff55aa,#aa00ff);
+  background: linear-gradient(45deg,#00f2fe,#4facfe);
   padding: 15px 30px;
-  border-radius: 10px;
+  border-radius: 12px;
   text-decoration: none;
   color: white;
+  font-size: 18px;
   margin-top: 20px;
 }
 
-/* Boxes */
+/* Info Section */
 .info {
   display: flex;
   flex-wrap: wrap;
@@ -42,27 +58,20 @@ h1 { font-size: 40px; margin: 0; }
 }
 
 .box {
-  background: #1a1a2e;
+  background: #111122;
   margin: 10px;
   padding: 20px;
   width: 260px;
-  border-radius: 10px;
-}
-
-/* Timer */
-#timer {
-  font-size: 22px;
-  margin-top: 10px;
-  color: #ff77aa;
+  border-radius: 15px;
+  box-shadow: 0 0 15px #ff00ff55;
 }
 
 /* Winner */
 .winner {
-  background: #111;
+  background: linear-gradient(45deg,#00c6ff,#0072ff);
   margin: 20px;
   padding: 20px;
-  border-radius: 10px;
-  border: 2px solid #ff0055;
+  border-radius: 15px;
 }
 
 /* Sticky Button */
@@ -70,11 +79,12 @@ h1 { font-size: 40px; margin: 0; }
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background: #ff0055;
+  background: #00f2fe;
   padding: 15px 25px;
   border-radius: 10px;
   text-decoration: none;
-  color: white;
+  color: black;
+  font-weight: bold;
 }
 
 </style>
@@ -83,25 +93,28 @@ h1 { font-size: 40px; margin: 0; }
 <body>
 
 <header>
-  <h1>PUBG TOURNAMENT PK</h1>
-  <p>🔥 Squad Match | Entry Fee: 200 Rs</p>
-  <h2>Win Up To 10,000 Rs 💰</h2>
+  <h1>🔥 PUBG TOURNAMENT PK 🔥</h1>
+  <p>Squad Battles | Entry 200 Rs | Massive Rewards 💰</p>
 
-  <div id="timer">Next Match In: Loading...</div>
+  <img class="hero-img" src="https://images.unsplash.com/photo-1605902711622-cfb43c4437d1" alt="pubg">
 
-  <a class="btn" href="https://forms.gle/V7kWJjrYwmyG9Bwx5" target="_blank">JOIN NOW</a>
+  <h2>💎 Win Big. Play Smart. Dominate 💎</h2>
+
+  <a class="btn" href="https://forms.gle/V7kWJjrYwmyG9Bwx5" target="_blank">
+  JOIN TOURNAMENT 🚀
+  </a>
 </header>
 
 <section class="info">
 
   <div class="box">
-    <h2>💰 Total Pool</h2>
+    <h2>💰 Total Prize Pool</h2>
     <p>50 Players × 200 Rs</p>
     <p><b>= 10,000 Rs</b></p>
   </div>
 
   <div class="box">
-    <h2>🏆 Prize</h2>
+    <h2>🏆 Rewards</h2>
     <p>🥇 6000 Rs</p>
     <p>🥈 2000 Rs</p>
     <p>🔫 1000 Rs</p>
@@ -109,12 +122,13 @@ h1 { font-size: 40px; margin: 0; }
   </div>
 
   <div class="box">
-    <h2>👥 Slots</h2>
-    <p id="slots">Joined: 0 / 50</p>
+    <h2>🎮 Match Type</h2>
+    <p>Squad (12 Teams)</p>
+    <p>Total Players: 50</p>
   </div>
 
   <div class="box">
-    <h2>💰 Payment</h2>
+    <h2>💳 Payment</h2>
     <p>JazzCash / Easypaisa</p>
     <p>03098784811</p>
   </div>
@@ -122,40 +136,13 @@ h1 { font-size: 40px; margin: 0; }
 </section>
 
 <div class="winner">
-  <h2>🏆 Last Match Winner</h2>
-  <p>Team Alpha - 6000 Rs</p>
+  <h2>🏆 Previous Winner</h2>
+  <p>Team Legends - 6000 Rs</p>
 </div>
 
-<a class="sticky-btn" href="https://forms.gle/V7kWJjrYwmyG9Bwx5" target="_blank">JOIN</a>
-
-<script>
-
-// ⏳ Countdown Timer (set next match time)
-var countDownDate = new Date().getTime() + (2 * 60 * 60 * 1000); // 2 hours from now
-
-setInterval(function() {
-  var now = new Date().getTime();
-  var distance = countDownDate - now;
-
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-
-  document.getElementById("timer").innerHTML =
-  "Next Match In: " + hours + "h " + minutes + "m";
-
-}, 1000);
-
-
-// 👥 Fake Slots Counter (demo)
-let joined = 0;
-setInterval(() => {
-  if (joined < 50) {
-    joined++;
-    document.getElementById("slots").innerText = "Joined: " + joined + " / 50";
-  }
-}, 2000);
-
-</script>
+<a class="sticky-btn" href="https://forms.gle/V7kWJjrYwmyG9Bwx5" target="_blank">
+JOIN NOW
+</a>
 
 </body>
 </html>
